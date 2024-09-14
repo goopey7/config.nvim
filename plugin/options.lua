@@ -12,7 +12,7 @@ opt.relativenumber = true
 -- Don't have `o` add a comment
 opt.formatoptions:remove "o"
 
-opt.wrap = true
+opt.wrap = false
 opt.linebreak = true
 
 opt.tabstop = 4
