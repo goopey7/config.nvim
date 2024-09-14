@@ -1,5 +1,8 @@
 -- setup lazy.nvim
 
+-- mapleader must be set before loading lazy
+vim.g.mapleader = " "
+
 -- if we don't have lazy, download it
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 if not vim.uv.fs_stat(lazypath) then
