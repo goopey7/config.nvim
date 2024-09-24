@@ -1,6 +1,6 @@
-local set = vim.opt_local
+local opt = vim.opt_local
 
-set.expandtab = false
-set.tabstop = 4
-set.shiftwidth = 4
-set.formatoptions:remove "o"
+opt.expandtab = false
+opt.tabstop = 4
+opt.shiftwidth = 4
+opt.formatoptions:remove "o"
