@@ -5,6 +5,7 @@ require("telescope").setup
 			"Binaries/*",
 			"Content/*",
 			"Intermediate/*",
+			".git/*",
 		},
 	},
 	extensions = {
