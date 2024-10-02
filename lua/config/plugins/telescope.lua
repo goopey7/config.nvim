@@ -9,6 +9,7 @@ return {
 	},
 	keys = {
 		{ "<leader>f", builtin.find_files, desc = "Find files" },
+		{ "<leader>t", builtin.lsp_dynamic_workspace_symbols, desc = "Find symbols" },
 	},
 	config = function()
 		require "config.telescope"
