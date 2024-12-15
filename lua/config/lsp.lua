@@ -26,6 +26,7 @@ local servers = {
       semanticTokensProvider = vim.NIL,
     },
   },
+  cmake = {},
   clangd = {},
   rust_analyzer = {},
 }
