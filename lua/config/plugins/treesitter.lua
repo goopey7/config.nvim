@@ -5,11 +5,11 @@ return {
     local treesitter = require("nvim-treesitter.configs")
     local languages = require("config.languages")
     local lang_names = {}
-    for _,language in ipairs(languages) do
+    for _, language in ipairs(languages) do
       table.insert(lang_names, language.name)
     end
     treesitter.setup({
-      ensure_installed = vim.tbl_flatten({lang_names}),
+      ensure_installed = vim.iter({ lang_names }):flatten():totable(),
       auto_install = false,
       highlight = {
         enable = true,

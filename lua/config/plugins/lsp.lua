@@ -21,7 +21,7 @@ local mason_auto_installer = {
       end
     end
     require("mason-tool-installer").setup({
-      ensure_installed = vim.tbl_flatten({language_servers, formatters}),
+      ensure_installed = vim.iter({ language_servers, formatters }):flatten():totable(),
       auto_update = false,
       run_on_start = true,
     })
@@ -36,9 +36,19 @@ local mason_lspconfig = {
   end,
 }
 
+local lazydev = {
+  "folke/lazydev.nvim",
+  ft = "lua",
+  opts = {
+    library = {
+      { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+    },
+  },
+}
+
 local lspconfig = {
   "neovim/nvim-lspconfig",
-  dependencies = { mason_lspconfig, mason, mason_auto_installer },
+  dependencies = { mason_lspconfig, mason, mason_auto_installer, lazydev },
   config = function()
     require("mason-lspconfig").setup_handlers({
       function(server_name)
@@ -48,4 +58,4 @@ local lspconfig = {
   end,
 }
 
-return { mason, mason_auto_installer, mason_lspconfig, lspconfig }
+return { mason, mason_auto_installer, mason_lspconfig, lspconfig, lazydev }
