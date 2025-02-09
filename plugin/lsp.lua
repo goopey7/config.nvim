@@ -2,6 +2,7 @@ vim.keymap.set("n", "grn", vim.lsp.buf.rename)
 vim.keymap.set("n", "gra", vim.lsp.buf.code_action)
 vim.keymap.set("n", "<leader>dj", vim.diagnostic.goto_next, { buffer = 0 })
 vim.keymap.set("n", "<leader>dk", vim.diagnostic.goto_prev, { buffer = 0 })
+vim.keymap.set("n", "<leader>F", vim.lsp.buf.format)
 
 vim.diagnostic.config({ underline = false })
 
