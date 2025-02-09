@@ -50,11 +50,18 @@ local lspconfig = {
   "neovim/nvim-lspconfig",
   dependencies = { mason_lspconfig, mason, mason_auto_installer, lazydev },
   config = function()
+
+    -- prefer treesitter highlighting over lsp semantic highlighting
+    require("lspconfig").util.default_config.on_init = function(client, _)
+      client.server_capabilities.semanticTokensProvider = nil
+    end
+
     require("mason-lspconfig").setup_handlers({
       function(server_name)
         require("lspconfig")[server_name].setup({})
       end,
     })
+
   end,
 }
 
