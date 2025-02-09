@@ -6,6 +6,7 @@ local config = {
       "Binaries/*",
       "Content/*",
       "Intermediate/*",
+      "obj/*",
       ".git/*",
     },
   },
@@ -25,12 +26,10 @@ local config = {
 }
 
 telescope.setup(config)
+telescope.load_extension("unreal")
 telescope.load_extension("fzf")
 telescope.load_extension("ui-select")
 
 local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<leader>fd", builtin.find_files)
 vim.keymap.set("n", "<leader>fb", builtin.buffers)
-vim.keymap.set("n", "gd", builtin.lsp_definitions)
-vim.keymap.set("n", "grr", builtin.lsp_references)
-vim.keymap.set("n", "gt", builtin.lsp_workspace_symbols)
