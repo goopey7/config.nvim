@@ -3,6 +3,15 @@ local telescope = require("telescope")
 local config = {
 	defaults = {
 		path_display = { "tail" },
+		file_ignore_patterns = {
+		  ".git/*",
+		  "ThirdParty/*",
+		  "x64/*",
+		  "CodeGen/*",
+		  ".vcxproj",
+		  "compile_commands.json",
+		  ".sln"
+		},
 	},
 	pickers = {
 		find_files = {
