@@ -8,16 +8,5 @@ vim.diagnostic.config({ underline = false })
 vim.keymap.set("n", "gd", "<cmd>Tele lsp_definitions<CR>")
 vim.keymap.set("n", "grr", "<cmd>Tele lsp_references<CR>")
 vim.keymap.set("n", "gt", "<cmd>Tele lsp_dynamic_workspace_symbols<CR>")
-
-
- vim.api.nvim_create_autocmd("LspAttach", {
- 	group = vim.api.nvim_create_augroup("lsp", { clear = true }),
- 	callback = function(args)
- 		vim.api.nvim_create_autocmd("BufWritePre", {
- 			buffer = args.buf,
- 			callback = function()
- 				vim.lsp.buf.format { async = false, id = args.data.client_id }
- 			end,
- 		})
- 	end
- })
+vim.keymap.set("n", "gf", vim.lsp.buf.format)
+vim.keymap.set("v", "gf", vim.lsp.buf.format)
