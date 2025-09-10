@@ -14,6 +14,7 @@ vim.o.hlsearch = false
 vim.o.number = true
 vim.o.relativenumber = true
 vim.g.statusline = 0
+vim.cmd("set ls=0")
 vim.opt.formatoptions:remove "o"
 
 vim.keymap.set("n", "<leader>o", ":update<CR> :source<CR>")
@@ -32,19 +33,7 @@ vim.pack.add({
 	"https://github.com/EdenEast/nightfox.nvim",
 })
 
-vim.api.nvim_create_autocmd("LspAttach", {
-	callback = function(ev)
-		local client = vim.lsp.get_client_by_id(ev.data.client_id)
-		if client:supports_method("textDocument/completion") then
-			vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
-		end
-	end
-})
-vim.cmd("set completeopt+=noselect")
-
 require "mini.pick".setup()
 require "oil_config"
+require "lsp_config"
 vim.cmd("colorscheme carbonfox")
-
-vim.lsp.enable({ "lua_ls", "clangd" })
-vim.cmd(":hi statusline guibg=NONE")
