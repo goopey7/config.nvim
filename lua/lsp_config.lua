@@ -6,13 +6,6 @@ local function on_jump(diagnostic)
 end
 vim.diagnostic.config({ underline = true, float = { source = true, border = "rounded" }, jump = { on_jump = on_jump } })
 
-vim.keymap.set("n", "gf", vim.lsp.buf.format)
-vim.keymap.set("n", "gj", function() vim.diagnostic.jump({ count = 1, severity = vim.diagnostic.severity.ERROR }) end)
-vim.keymap.set("n", "gk", function() vim.diagnostic.jump({ count = -1, severity = vim.diagnostic.severity.ERROR }) end)
-vim.keymap.set("n", "gl", function() vim.diagnostic.jump({ count = 1 }) end)
-vim.keymap.set("n", "gh", function() vim.diagnostic.jump({ count = -1 }) end)
-vim.keymap.set("n", "gd", function() vim.diagnostic.open_float(nil, { focus = false, scope = "cursor" }) end)
-
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(ev)
 		local client = vim.lsp.get_client_by_id(ev.data.client_id)

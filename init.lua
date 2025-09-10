@@ -15,14 +15,6 @@ vim.g.statusline = 0
 vim.cmd("set laststatus=0")
 vim.opt.formatoptions:remove "o"
 
-vim.keymap.set("n", "<leader>o", ":update<CR> :source<CR>")
-vim.keymap.set("n", "-", ":Oil<CR>")
-vim.keymap.set("n", "<leader>fd", ":Pick files<CR>")
-vim.keymap.set("n", "<leader>fb", ":Pick buffers<CR>")
-vim.keymap.set("n", "<leader>fl", ":Pick grep_live<CR>")
-vim.keymap.set("n", "<leader>fh", ":Pick help<CR>")
-vim.keymap.set("n", "<leader>g", ":LazyGit<CR>")
-
 vim.pack.add({
 	"https://github.com/stevearc/oil.nvim",
 	"https://github.com/nvim-mini/mini.pick",
@@ -35,3 +27,17 @@ require "mini.pick".setup()
 require "oil_config"
 require "lsp_config"
 vim.cmd("colorscheme carbonfox")
+
+vim.keymap.set("n", "<leader>o", ":update<CR> :source<CR>")
+vim.keymap.set("n", "-", ":Oil<CR>")
+vim.keymap.set("n", "<leader>fd", ":Pick files<CR>")
+vim.keymap.set("n", "<leader>fb", ":Pick buffers<CR>")
+vim.keymap.set("n", "<leader>fl", ":Pick grep_live<CR>")
+vim.keymap.set("n", "<leader>fh", ":Pick help<CR>")
+vim.keymap.set("n", "<leader>g", ":LazyGit<CR>")
+vim.keymap.set("n", "gf", vim.lsp.buf.format)
+vim.keymap.set("n", "gj", function() vim.diagnostic.jump({ count = 1, severity = vim.diagnostic.severity.ERROR }) end)
+vim.keymap.set("n", "gk", function() vim.diagnostic.jump({ count = -1, severity = vim.diagnostic.severity.ERROR }) end)
+vim.keymap.set("n", "gl", function() vim.diagnostic.jump({ count = 1 }) end)
+vim.keymap.set("n", "gh", function() vim.diagnostic.jump({ count = -1 }) end)
+vim.keymap.set("n", "gd", function() vim.diagnostic.open_float(nil, { focus = false, scope = "cursor" }) end)
