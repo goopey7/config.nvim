@@ -11,8 +11,6 @@ vim.o.winborder = "rounded"
 vim.o.smartcase = true
 vim.o.ignorecase = true
 vim.o.hlsearch = false
-vim.o.number = true
-vim.o.relativenumber = true
 vim.g.statusline = 0
 vim.cmd("set ls=0")
 vim.opt.formatoptions:remove "o"
