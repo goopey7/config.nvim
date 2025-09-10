@@ -18,26 +18,32 @@ vim.opt.formatoptions:remove "o"
 vim.pack.add({
 	"https://github.com/stevearc/oil.nvim",
 	"https://github.com/nvim-mini/mini.pick",
+	"https://github.com/nvim-mini/mini.extra",
 	"https://github.com/neovim/nvim-lspconfig",
 	"https://github.com/kdheepak/lazygit.nvim",
 	"https://github.com/EdenEast/nightfox.nvim",
 })
 
 require "mini.pick".setup()
+require "mini.extra".setup()
 require "oil_config"
 require "lsp_config"
 vim.cmd("colorscheme carbonfox")
 
 vim.keymap.set("n", "<leader>o", ":update<CR> :source<CR>")
+vim.keymap.set("n", "<leader>g", ":LazyGit<CR>")
 vim.keymap.set("n", "-", ":Oil<CR>")
 vim.keymap.set("n", "<leader>fd", ":Pick files<CR>")
 vim.keymap.set("n", "<leader>fb", ":Pick buffers<CR>")
 vim.keymap.set("n", "<leader>fl", ":Pick grep_live<CR>")
 vim.keymap.set("n", "<leader>fh", ":Pick help<CR>")
-vim.keymap.set("n", "<leader>g", ":LazyGit<CR>")
+vim.keymap.set("n", "gt", function() require "mini.extra".pickers.lsp({ scope = "workspace_symbol" }) end)
+vim.keymap.set("n", "grr", function() require "mini.extra".pickers.lsp({ scope = "references" }) end)
+vim.keymap.set("n", "gd", vim.lsp.buf.definition)
+vim.keymap.set("n", "gD", vim.lsp.buf.declaration)
 vim.keymap.set("n", "gf", vim.lsp.buf.format)
 vim.keymap.set("n", "gj", function() vim.diagnostic.jump({ count = 1, severity = vim.diagnostic.severity.ERROR }) end)
 vim.keymap.set("n", "gk", function() vim.diagnostic.jump({ count = -1, severity = vim.diagnostic.severity.ERROR }) end)
 vim.keymap.set("n", "gl", function() vim.diagnostic.jump({ count = 1 }) end)
 vim.keymap.set("n", "gh", function() vim.diagnostic.jump({ count = -1 }) end)
-vim.keymap.set("n", "gd", function() vim.diagnostic.open_float(nil, { focus = false, scope = "cursor" }) end)
+vim.keymap.set("n", "gi", function() vim.diagnostic.open_float(nil, { focus = false, scope = "cursor" }) end)
