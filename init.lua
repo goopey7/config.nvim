@@ -29,7 +29,7 @@ vim.pack.add({
 	"https://github.com/nvim-mini/mini.pick",
 	"https://github.com/neovim/nvim-lspconfig",
 	"https://github.com/kdheepak/lazygit.nvim",
-	"https://github.com/ellisonleao/gruvbox.nvim",
+	"https://github.com/EdenEast/nightfox.nvim",
 })
 
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -44,7 +44,7 @@ vim.cmd("set completeopt+=noselect")
 
 require "mini.pick".setup()
 require "oil_config"
-require "colorscheme_config"
+vim.cmd("colorscheme carbonfox")
 
 vim.lsp.enable({ "lua_ls", "clangd" })
 vim.cmd(":hi statusline guibg=NONE")
