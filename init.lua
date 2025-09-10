@@ -12,7 +12,7 @@ vim.o.smartcase = true
 vim.o.ignorecase = true
 vim.o.hlsearch = false
 vim.g.statusline = 0
-vim.cmd("set ls=0")
+vim.cmd("set laststatus=0")
 vim.opt.formatoptions:remove "o"
 
 vim.keymap.set("n", "<leader>o", ":update<CR> :source<CR>")
