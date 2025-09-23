@@ -18,7 +18,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 })
 vim.cmd("set completeopt+=noselect")
 
-require('lspconfig').lua_ls.setup {
+vim.lsp.config("lua_ls", {
 	settings = {
 		Lua = {
 			workspace = {
@@ -26,6 +26,6 @@ require('lspconfig').lua_ls.setup {
 			}
 		}
 	}
-}
+})
 
-vim.lsp.enable({ "clangd" })
+vim.lsp.enable({ "lua_ls", "clangd" })
