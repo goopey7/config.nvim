@@ -11,7 +11,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		local client = vim.lsp.get_client_by_id(ev.data.client_id)
 		if client then
 			if client:supports_method("textDocument/completion") then
-				vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = false })
+				vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
+			end
+			if client.name == "clangd" then
+				local opts = { buffer = ev.buf, silent = true }
+				vim.keymap.set("n", "gi", "<cmd>LspClangdSwitchSourceHeader<cr>",
+					vim.tbl_extend("force", opts, { desc = "Switch Source/Header" }))
 			end
 		end
 	end
@@ -26,6 +31,43 @@ vim.lsp.config("lua_ls", {
 			}
 		}
 	}
+})
+
+vim.lsp.config("clangd", {
+	cmd = {
+		"clangd",
+		"--background-index",
+		"--clang-tidy",
+		"--completion-style=detailed",
+		"--header-insertion=iwyu",
+		"--header-insertion-decorators",
+		"--function-arg-placeholders",
+		"--fallback-style=llvm",
+		"--pch-storage=memory",
+		"-j=4",
+		"--all-scopes-completion",
+		"--cross-file-rename",
+		"--suggest-missing-includes",
+		"--ranking-model=decision_forest",
+	},
+	filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
+	root_markers = {
+		".clangd",
+		".clang-tidy",
+		".clang-format",
+		"compile_commands.json",
+		"compile_flags.txt",
+		".git"
+	},
+	capabilities = {
+		offsetEncoding = { "utf-16" },
+	},
+	init_options = {
+		clangdFileStatus = true,
+		usePlaceholders = true,
+		completeUnimported = true,
+		semanticHighlighting = true,
+	},
 })
 
 vim.lsp.enable({ "lua_ls", "clangd" })
