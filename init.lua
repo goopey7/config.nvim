@@ -88,6 +88,15 @@ vim.keymap.set("n", "grr", builtin.lsp_references)
 vim.keymap.set("n", "gd", vim.lsp.buf.definition)
 vim.keymap.set("n", "gD", vim.lsp.buf.declaration)
 vim.keymap.set("n", "gf", vim.lsp.buf.format)
+vim.keymap.set("v", "gf", function()
+	vim.lsp.buf.format({
+		range = {
+			["start"] = vim.api.nvim_buf_get_mark(0, "<"),
+			["end"] = vim.api.nvim_buf_get_mark(0, ">"),
+		},
+		async = true,
+	})
+end, { desc = "Format selection" })
 vim.keymap.set("n", "gj", function() vim.diagnostic.jump({ count = 1, severity = vim.diagnostic.severity.ERROR }) end)
 vim.keymap.set("n", "gk", function() vim.diagnostic.jump({ count = -1, severity = vim.diagnostic.severity.ERROR }) end)
 vim.keymap.set("n", "gl", function() vim.diagnostic.jump({ count = 1 }) end)
