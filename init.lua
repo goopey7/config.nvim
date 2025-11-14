@@ -22,13 +22,16 @@ vim.pack.add({
 	"https://github.com/nvim-lua/plenary.nvim",
 	"https://github.com/nvim-telescope/telescope.nvim",
 	"https://github.com/nvim-treesitter/nvim-treesitter",
+	{src = "https://github.com/epwalsh/obsidian.nvim", version = "v3.9.0"},
 })
 
 require "oil_config"
 require "lsp_config"
+require "obsidian_config"
 
 require "telescope".setup({
 	defaults = {
+		file_ignore_patterns = {},
 		color_devicons = false,
 		sorting_strategy = "ascending",
 		borderchars = { "", "", "", "", "", "", "", "", },
@@ -39,7 +42,7 @@ require "telescope".setup({
 			width = 400,
 			prompt_position = "top",
 		}
-	}
+	},
 })
 local builtin = require "telescope.builtin"
 
