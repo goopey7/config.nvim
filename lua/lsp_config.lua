@@ -70,4 +70,4 @@ vim.lsp.config("clangd", {
 	},
 })
 
-vim.lsp.enable({ "lua_ls", "clangd" })
+vim.lsp.enable({ "lua_ls", "clangd", "csharp_ls", "cmake", "rust_analyzer" })
