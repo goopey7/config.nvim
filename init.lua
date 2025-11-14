@@ -11,6 +11,7 @@ vim.o.winborder = "rounded"
 vim.o.smartcase = true
 vim.o.ignorecase = true
 vim.o.hlsearch = false
+vim.o.autoread = true
 vim.g.statusline = 0
 vim.cmd("set laststatus=0")
 vim.opt.formatoptions:remove "o"
