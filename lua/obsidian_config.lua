@@ -144,6 +144,28 @@ require("obsidian").setup({
 		end,
 		confirm_img_paste = true,
 	},
+	---@param title string|?
+	---@return string
+	note_id_func = function(title)
+		-- Format timestamp as YYYYMMDDHHMMSS
+		local timestamp = os.date("%Y-%m-%d-%H%M%S")
+
+		local suffix = ""
+		if title ~= nil then
+			-- Transform title into valid file name.
+			suffix = title
+				:gsub(" ", "-")
+				:gsub("[^A-Za-z0-9-]", "")
+				:lower()
+		else
+			-- If title is nil, generate 4 random uppercase letters.
+			for _ = 1, 4 do
+				suffix = suffix .. string.char(math.random(65, 90))
+			end
+		end
+
+		return timestamp .. "-" .. suffix
+	end
 })
 
 require("nvim-treesitter.configs").setup({
