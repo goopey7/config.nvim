@@ -24,12 +24,13 @@ vim.pack.add({
 	"https://github.com/nvim-telescope/telescope.nvim",
 	"https://github.com/nvim-treesitter/nvim-treesitter",
 	{src = "https://github.com/epwalsh/obsidian.nvim", version = "v3.9.0"},
+	"https://github.com/stevearc/quicker.nvim",
 })
 
 require "oil_config"
 require "lsp_config"
 require "obsidian_config"
-
+require "quicker".setup()
 require "telescope".setup({
 	defaults = {
 		file_ignore_patterns = {},
@@ -45,6 +46,7 @@ require "telescope".setup({
 		}
 	},
 })
+
 local builtin = require "telescope.builtin"
 
 vim.cmd("colorscheme carbonfox")
