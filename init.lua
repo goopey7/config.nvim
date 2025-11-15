@@ -23,14 +23,31 @@ vim.pack.add({
 	"https://github.com/nvim-lua/plenary.nvim",
 	"https://github.com/nvim-telescope/telescope.nvim",
 	"https://github.com/nvim-treesitter/nvim-treesitter",
-	{src = "https://github.com/epwalsh/obsidian.nvim", version = "v3.9.0"},
+	{ src = "https://github.com/epwalsh/obsidian.nvim", version = "v3.9.0" },
 	"https://github.com/stevearc/quicker.nvim",
 })
 
 require "oil_config"
 require "lsp_config"
 require "obsidian_config"
-require "quicker".setup()
+require "quicker".setup({
+	keys = {
+		{
+			">",
+			function()
+				require("quicker").expand({ before = 2, after = 2, add_to_existing = true })
+			end,
+			desc = "Expand quickfix context",
+		},
+		{
+			"<",
+			function()
+				require("quicker").collapse()
+			end,
+			desc = "Collapse quickfix context",
+		},
+	},
+})
 require "telescope".setup({
 	defaults = {
 		file_ignore_patterns = {},
@@ -89,7 +106,7 @@ vim.keymap.set("n", "<leader>fb", builtin.builtin)
 vim.keymap.set("n", "<leader>b", builtin.buffers)
 vim.keymap.set("n", "<leader>fl", builtin.live_grep)
 vim.keymap.set("n", "<leader>fh", builtin.help_tags)
-vim.keymap.set("n", "<leader>fm", function() builtin.man_pages({sections={"1", "2", "3", "6"}}) end)
+vim.keymap.set("n", "<leader>fm", function() builtin.man_pages({ sections = { "1", "2", "3", "6" } }) end)
 vim.keymap.set("n", "gt", builtin.lsp_workspace_symbols)
 vim.keymap.set("n", "grr", builtin.lsp_references)
 vim.keymap.set("n", "gd", vim.lsp.buf.definition)
@@ -109,3 +126,13 @@ vim.keymap.set("n", "gk", function() vim.diagnostic.jump({ count = -1, severity 
 vim.keymap.set("n", "gl", function() vim.diagnostic.jump({ count = 1 }) end)
 vim.keymap.set("n", "gh", function() vim.diagnostic.jump({ count = -1 }) end)
 vim.keymap.set("n", "gi", function() vim.diagnostic.open_float(nil, { focus = false, scope = "cursor" }) end)
+vim.keymap.set("n", "<leader>q", function()
+	require("quicker").toggle()
+end, {
+	desc = "Toggle quickfix",
+})
+vim.keymap.set("n", "<leader>l", function()
+	require("quicker").toggle({ loclist = true })
+end, {
+	desc = "Toggle loclist",
+})
