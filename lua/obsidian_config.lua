@@ -175,7 +175,7 @@ require("nvim-treesitter.configs").setup({
 	},
 })
 
-vim.opt.conceallevel = 1
+vim.o.conceallevel = 1
 vim.keymap.set("n", "<leader>of", ":ObsidianQuickSwitch<CR>")
 vim.keymap.set("n", "<leader>oo", ":ObsidianOpen<CR>")
 vim.keymap.set("n", "<leader>og", ":ObsidianSearch<CR>")

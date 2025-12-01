@@ -14,7 +14,7 @@ vim.o.hlsearch = false
 vim.o.autoread = true
 vim.g.statusline = 0
 vim.cmd("set laststatus=0")
-vim.opt.formatoptions:remove "o"
+--vim.o.formatoptions:remove "o"
 
 vim.pack.add({
 	"https://github.com/stevearc/oil.nvim",
