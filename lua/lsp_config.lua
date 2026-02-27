@@ -70,4 +70,13 @@ vim.lsp.config("clangd", {
 	},
 })
 
-vim.lsp.enable({ "lua_ls", "clangd", "csharp_ls", "cmake", "rust_analyzer" })
+vim.lsp.config("zls", {
+	cmd = { "zls" },
+	settings = {
+		zls = {
+			enable_build_on_save = true,
+		},
+	},
+});
+
+vim.lsp.enable({ "lua_ls", "clangd", "csharp_ls", "cmake", "rust_analyzer", "zls", "tinymist" })

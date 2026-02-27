@@ -1,5 +1,9 @@
 {
   "plugins": {
+    "blink.cmp": {
+      "rev": "49f211fe5d729df53df4c042d7c3464cf47d199e",
+      "src": "https://github.com/saghen/blink.cmp"
+    },
     "nightfox.nvim": {
       "rev": "ba47d4b",
       "src": "https://github.com/EdenEast/nightfox.nvim"
@@ -13,6 +17,8 @@
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "obsidian.nvim": {
+      "rev": "ae1f76a75c7ce36866e1d9342a8f6f5b9c2caf9b",
+      "src": "https://github.com/epwalsh/obsidian.nvim",
       "version": "'v3.9.0'"
     },
     "oil.nvim": {
@@ -30,6 +36,11 @@
     "telescope.nvim": {
       "rev": "b4da76b",
       "src": "https://github.com/nvim-telescope/telescope.nvim"
+    },
+    "typst-preview.nvim": {
+      "rev": "e123a7ab64e52d836e00dea9251e85b201f38966",
+      "src": "https://github.com/chomosuke/typst-preview.nvim",
+      "version": "'v1.4.1'"
     }
   }
 }
