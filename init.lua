@@ -37,6 +37,7 @@ vim.cmd("colorscheme carbonfox")
 require "oil_config"
 require "fff_config"
 require "terminal_config"
+require "quicker_config"
 require "lazygit"
 vim.keymap.set('n', '<leader>fd', function() require('fff').find_files() end, { desc = 'Find files' })
 vim.keymap.set('n', '<leader>fl', function() require('fff').live_grep() end, { desc = 'Live Grep' })
