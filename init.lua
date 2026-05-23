@@ -32,7 +32,7 @@ vim.pack.add({
 vim.cmd("colorscheme carbonfox")
 })
 require "oil_config"
-require "terminal"
+require "terminal_config"
 vim.keymap.set("n", "-", ":Oil<CR>")
 vim.keymap.set("n", "<leader>q", function()
 	require("quicker").toggle()
