@@ -27,6 +27,8 @@ vim.g.statusline = 0
 
 vim.pack.add({
 	"https://github.com/stevearc/oil.nvim",
+	"https://github.com/EdenEast/nightfox.nvim",
+vim.cmd("colorscheme carbonfox")
 })
 require "oil_config"
 require "terminal"
