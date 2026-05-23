@@ -25,4 +25,9 @@ vim.o.hlsearch = false
 vim.o.autoread = true
 vim.g.statusline = 0
 
+vim.pack.add({
+	"https://github.com/stevearc/oil.nvim",
+})
+require "oil_config"
 require "terminal"
+vim.keymap.set("n", "-", ":Oil<CR>")
