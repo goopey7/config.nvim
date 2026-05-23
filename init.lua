@@ -29,10 +29,16 @@ vim.pack.add({
 	"https://github.com/stevearc/oil.nvim",
 	"https://github.com/EdenEast/nightfox.nvim",
 	"https://github.com/stevearc/quicker.nvim",
-vim.cmd("colorscheme carbonfox")
+	"https://github.com/dmtrKovalenko/fff.nvim",
 })
+
+vim.cmd("colorscheme carbonfox")
+
 require "oil_config"
+require "fff_config"
 require "terminal_config"
+vim.keymap.set('n', '<leader>fd', function() require('fff').find_files() end, { desc = 'Find files' })
+vim.keymap.set('n', '<leader>fl', function() require('fff').live_grep() end, { desc = 'Live Grep' })
 vim.keymap.set("n", "-", ":Oil<CR>")
 vim.keymap.set("n", "<leader>q", function()
 	require("quicker").toggle()

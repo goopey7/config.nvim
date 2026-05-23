@@ -1,5 +1,9 @@
 {
   "plugins": {
+    "fff.nvim": {
+      "rev": "cf3dcf6d0b47c299614ba54f341ce7b5284e73ff",
+      "src": "https://github.com/dmtrKovalenko/fff.nvim"
+    },
     "nightfox.nvim": {
       "rev": "26b61b1f856ec37cae3cb64f5690adb955f246a1",
       "src": "https://github.com/EdenEast/nightfox.nvim"
