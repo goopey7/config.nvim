@@ -13,7 +13,9 @@ vim.keymap.set("n", "<leader>g", function()
 		border = 'none',
 	})
 
-	vim.fn.jobstart("lazygit", { term = true })
+	vim.b.lazygit = true
+
+	vim.fn.jobstart("lazygit", { term = true, env = { NVIM = vim.NIL } })
 	vim.cmd.startinsert()
 
 	vim.api.nvim_create_autocmd("TermClose", {
