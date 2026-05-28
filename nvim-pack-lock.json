@@ -4,6 +4,14 @@
       "rev": "cf3dcf6d0b47c299614ba54f341ce7b5284e73ff",
       "src": "https://github.com/dmtrKovalenko/fff.nvim"
     },
+    "lua-utils.nvim": {
+      "rev": "e565749421f4bbb5d2e85e37c3cef9d56553d8bd",
+      "src": "https://github.com/nvim-neorg/lua-utils.nvim"
+    },
+    "neorg": {
+      "rev": "1f14d72aad7165eac307a2a2f6be0fb97a04b3c2",
+      "src": "https://github.com/nvim-neorg/neorg"
+    },
     "nightfox.nvim": {
       "rev": "26b61b1f856ec37cae3cb64f5690adb955f246a1",
       "src": "https://github.com/EdenEast/nightfox.nvim"
@@ -12,9 +20,17 @@
       "rev": "a4ed4e761c400849e8c9f8bda33e5083f890268c",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
+    "nvim-nio": {
+      "rev": "21f5324bfac14e22ba26553caf69ec76ae8a7662",
+      "src": "https://github.com/nvim-neotest/nvim-nio"
+    },
     "oil.nvim": {
       "rev": "0fcc83805ad11cf714a949c98c605ed717e0b83e",
       "src": "https://github.com/stevearc/oil.nvim"
+    },
+    "pathlib.nvim": {
+      "rev": "57e5598af6fe253761c1b48e0b59b7cd6699e2c1",
+      "src": "https://github.com/pysan3/pathlib.nvim"
     },
     "plenary.nvim": {
       "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
@@ -27,6 +43,10 @@
     "telescope.nvim": {
       "rev": "7d324792b7943e4aa16ad007212e6acc6f9fe335",
       "src": "https://github.com/nvim-telescope/telescope.nvim"
+    },
+    "tree-sitter-manager.nvim": {
+      "rev": "7d0e588297acd2b906c77a9da9ecf716d5de7746",
+      "src": "https://github.com/romus204/tree-sitter-manager.nvim"
     }
   }
 }

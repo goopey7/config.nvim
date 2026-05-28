@@ -16,6 +16,7 @@ vim.o.ignorecase = true
 vim.o.hlsearch = false
 vim.o.autoread = true
 vim.g.statusline = 0
+vim.opt.conceallevel = 2
 
 vim.pack.add({
 	"https://github.com/stevearc/oil.nvim",
@@ -25,17 +26,24 @@ vim.pack.add({
 	"https://github.com/dmtrKovalenko/fff.nvim",
 	"https://github.com/nvim-lua/plenary.nvim",
 	"https://github.com/nvim-telescope/telescope.nvim",
+	"https://github.com/romus204/tree-sitter-manager.nvim",
+	"https://github.com/nvim-neorg/neorg",
+	"https://github.com/nvim-neorg/lua-utils.nvim",
+	"https://github.com/pysan3/pathlib.nvim",
+	"https://github.com/nvim-neotest/nvim-nio",
 })
 
 vim.cmd("colorscheme carbonfox")
 
-require "oil_config"
-require "fff_config"
-require "telescope_config"
-require "terminal_config"
-require "lsp_config"
-require "quicker_config"
-require "lazygit"
+require "config.oil"
+require "config.fff"
+require "config.telescope"
+require "config.terminal"
+require "config.lsp"
+require "config.quicker"
+require "config.lazygit"
+require "config.treesitter"
+require "config.neorg"
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>fd', function() require('fff').find_files() end, { desc = 'Find files' })
 vim.keymap.set('n', '<leader>fl', function() require('fff').live_grep({ grep = { modes = { 'fuzzy', 'plain' } } }) end,
