@@ -1,3 +1,14 @@
+require("fff.download").ensure_downloaded({}, function(ok, err)
+  if not ok then
+    vim.schedule(function()
+      vim.notify(
+        "fff.nvim: failed to fetch binary: " .. (err or "unknown"),
+        vim.log.levels.ERROR
+      )
+    end)
+  end
+end)
+
 vim.api.nvim_create_autocmd('PackChanged', {
   callback = function(ev)
     local name, kind = ev.data.spec.name, ev.data.kind
