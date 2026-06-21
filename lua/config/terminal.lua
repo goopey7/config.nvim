@@ -11,7 +11,7 @@ vim.o.termguicolors = true
 vim.o.laststatus = 3
 vim.o.statusline = '%{%&buftype!="terminal"?" %f%m%r%h%w%=%l,%c%V %P ":""%}'
 
-vim.api.nvim_create_autocmd({'BufEnter', 'TermEnter' }, {
+vim.api.nvim_create_autocmd({ 'BufEnter', 'TermEnter' }, {
 	desc = 'sync nvim with terminal cwd',
 	pattern = 'term://*',
 	callback = function()

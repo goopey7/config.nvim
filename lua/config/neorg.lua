@@ -1,14 +1,14 @@
 vim.filetype.add({
-  extension = {
-    norg = "norg",
-  },
+	extension = {
+		norg = "norg",
+	},
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = "norg",
-  callback = function(args)
-    vim.treesitter.start(args.buf)
-  end,
+	pattern = "norg",
+	callback = function(args)
+		vim.treesitter.start(args.buf)
+	end,
 })
 
 require("neorg").setup({

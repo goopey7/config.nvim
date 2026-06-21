@@ -1,5 +1,5 @@
 require("tree-sitter-manager").setup({
-	ensure_installed = {"cpp", "zig", "rust", "json", "yaml", "asm", "bash", "glsl", "hlsl"},
+	ensure_installed = { "cpp", "zig", "rust", "json", "yaml", "asm", "bash", "glsl", "hlsl" },
 	highlight = true,
 	languages = {
 		norg = {
@@ -9,4 +9,3 @@ require("tree-sitter-manager").setup({
 		},
 	},
 })
-
