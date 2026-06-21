@@ -59,8 +59,8 @@ vim.keymap.set('n', '<leader>fm', function()
 end, { desc = 'Man pages' })
 vim.keymap.set('n', 'gt', builtin.lsp_workspace_symbols, { desc = 'LSP workspace symbols' })
 vim.keymap.set('n', 'grr', builtin.lsp_references, { desc = 'LSP references' })
-vim.keymap.set("n", "<leader>c", vim.lsp.buf.format, { desc = 'Format file' })
-vim.keymap.set("v", "<leader>c", function()
+vim.keymap.set("n", "gf", vim.lsp.buf.format, { desc = 'Format file' })
+vim.keymap.set("v", "gf", function()
 	vim.lsp.buf.format({
 		range = {
 			["start"] = vim.api.nvim_buf_get_mark(0, "<"),
@@ -73,13 +73,4 @@ vim.keymap.set("n", "gj", function() vim.diagnostic.jump({ count = 1, severity =
 vim.keymap.set("n", "gk", function() vim.diagnostic.jump({ count = -1, severity = vim.diagnostic.severity.ERROR }) end)
 vim.keymap.set("n", "gl", function() vim.diagnostic.jump({ count = 1 }) end)
 vim.keymap.set("n", "gh", function() vim.diagnostic.jump({ count = -1 }) end)
-vim.keymap.set("n", "<leader>q", function()
-	require("quicker").toggle()
-end, {
-	desc = "Toggle quickfix",
-})
-vim.keymap.set("n", "<leader>l", function()
-	require("quicker").toggle({ loclist = true })
-end, {
-	desc = "Toggle loclist",
-})
+vim.keymap.set("n", "<leader>q", function() require("quicker").toggle() end, { desc = "Toggle quickfix", })
